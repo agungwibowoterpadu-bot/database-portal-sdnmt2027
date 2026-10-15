@@ -706,7 +706,7 @@
 
 <script>
 /* ============================================================
-   ⚙️ KONFIGURASI URL — akan diisi otomatis saat download terkonfigurasi
+   KONFIGURASI URL
    ============================================================ */
 var DEFAULT_API_URL = '';
 var API_URL = DEFAULT_API_URL || localStorage.getItem('databaseSDNMT2027_apiUrl') || '';
@@ -714,20 +714,21 @@ var apiUrlLocked = localStorage.getItem('databaseSDNMT2027_apiUrlLocked') === 't
 var lastConnectionTest = null;
 
 /* ============================================================
-   DATA WILAYAH BOJONEGORO
+   DATA WILAYAH BOJONEGORO — 28 KECAMATAN (Data Terbaru & Lengkap)
    ============================================================ */
 var WILAYAH = {
-  "Balen": ["Balen","Bulu","Kedungbondo","Kedungdowo","Lengkong","Margomulyo","Mayangkawis","Mulyoagung","Ngadiluhur","Pilangsari","Pohbogo","Prambatan","Sekaran","Sidobandung","Sobontoro","Suwaloh"],
-  "Baureno": ["Banjaran","Baureno","Blongsong","Bumiayu","Gajah","Gunungsari","Kaligede","Karangdayu","Kauman","Lebaksari","Ngemplak","Pasinan","Pomahan","Pucangarum","Selorejo","Sembunglor","Srbah","Tanggungan","Tlogoagung","Trojalu","Tulungagung"],
-  "Bojonegoro": ["Banjarejo","Campurejo","Jetak","Kadipaten","Karangpacar","Kepatihan","Kliteh","Ledok Kulon","Ledok Wetan","Mojokampung","Mulyoagung","Ngrowo","Pacul","Semanding","Sukorejo","Sumbang","Tambakromo"],
+  "Balen": ["Balenrejo","Bulaklo","Bulu","Kabunan","Kedungbendo","Kedungdowo","Kemamang","Kenep","Lengkong","Mayangkawis","Mulyoagung","Mulyorejo","Ngadiluhur","Pilanggede","Pohbogo","Prambatan","Sekaran","Sidobandung","Sobontoro","Suwaloh"],
+  "Baureno": ["Banjaran","Banjaranyar","Baureno","Blongsong","Bumiayu","Gajah","Gunungsari","Kaligede","Karangdayu","Kauman","Lebaksari","Ngemplak","Pasinan","Pomahan","Pucangarum","Selorejo","Sembunglor","Sraturejo","Sumuragung","Tanggungan","Tlogoagung","Trojalu","Tulungagung"],
+  "Bojonegoro": ["Banjarejo","Campurejo","Jetak","Kadipaten","Karangpacar","Kauman","Kepatihan","Kliteh","Ledok Kulon","Ledok Wetan","Mojokampung","Mulyoagung","Ngrowo","Pacul","Semanding","Sukorejo","Sumbang","Tambakromo"],
   "Bubulan": ["Bubulan","Cancung","Clebung","Ngorogunung","Sumberbendo"],
-  "Dander": ["Dander","Growok","Jatiblimbing","Karangsono","Kunci","Mojoranu","Ngablak","Ngraseh","Ngulanan","Ngumpakdalem","Sendangrejo","Sumberagung","Sumberarum","Sumbertlaseh","Sumodikaran"],
+  "Dander": ["Dander","Growok","Jatiblimbing","Karangsono","Kunci","Mojoranu","Ngablak","Ngraseh","Ngulanan","Ngumpakdalem","Ngunut","Sendangrejo","Sumberagung","Sumberarum","Sumbertlaseh","Sumodikaran"],
   "Gayam": ["Begadon","Beged","Boncong","Brabowan","Gayam","Gempol","Kaligede","Katur","Mojodelik","Ngraho","Ringintunggal","Sudu"],
   "Gondang": ["Bumela","Gondang","Jari","Krondonan","Pajeng","Pragelan","Senganten"],
-  "Kalitidu": ["Brenggolo","Grebegan","Kalitidu","Mayanggeneng","Mayangrejo","Mlaten","Mojo","Mojosari","Ngiringinrejo","Pilangsari","Pungpungan","Sumengko","Talok","Wotanngare"],
-  "Kanor": ["Bakung","Bendo","Bungur","Cangaan","Gapuk","Gogor","Gondang","Kanor","Karangbendo","Nglarangan","Palembon","Pesen","Piyak","Prangi","Purwosari","Samberan","Sedeng","Simbatan","Sumberjo","Tambahrejo","Tanjung","Tlogohaji"],
-  "Kapas": ["Bakalan","Bangilan","Bendo","Dukuh","Kalirejo","Kapas","Kedaton","Kumpulrejo","Mulyoagung","Ngampel","Padangmentoyo","Plesungan","Sambiroto","Semenpinggir","Sukowati","Tanjungharjo","Tembeling","Wedi"],
-  "Kasiman": ["Batokan","Besah","Kasiman","Kedungasri","Nglateng","Ngaglik","Sambeng","Sekaran","Sidomukti","Tambakmerak","Tembeling"],
+  "Kalitidu": ["Brenggolo","Grebegan","Kalitidu","Leran","Mayanggeneng","Mayangrejo","Mlaten","Mojo","Mojosari","Ngiringinrejo","Ngujo","Panjunan","Pilangsari","Pungpungan","Sukoharjo","Sumengko","Talok","Wotanngare"],
+  "Kanor": ["Bakung","Bungur","Cangaan","Caruban","Gedongarum","Kabalan","Kanor","Kedungprimpen","Nglarangan","Palembon","Pesen","Pilang","Piyak","Prangi","Purwosari","Samberan","Sedeng","Semambung","Simbatan","Sumberjo","Tambahrejo","Tanjung","Temu","Tlogohaji"],
+  "Kapas": ["Bakalan","Bangilan","Bendo","Bogo","Dukuh","Kalirejo","Kalianyar","Kapas","Kedaton","Kumpulrejo","Mulyoagung","Ngampel","Padangmentoyo","Plesungan","Sambiroto","Semenpinggir","Sukowati","Tanjungharjo","Tapelan","Tembeling","Wedi"],
+  "Kasiman": ["Batokan","Besah","Kasiman","Kedungasri","Nglateng","Ngaglik","Sambeng","Sekaran","Sidomukti","Tambakmerak"],
+  "Kedewan": ["Beji","Kawengan","Kedewan","Ngrawoh","Wonosari"],
   "Kedungadem": ["Babad","Balongcabe","Dayukidul","Drokilo","Duwel","Geger","Jamberejo","Kedungadem","Kedungrejo","Kendung","Kepohkidul","Megale","Mlideg","Mojorejo","Ngrandu","Panjang","Pejok","Sidomulyo","Sidorejo","Tlogoagung","Tondomulo"],
   "Kepohbaru": ["Babad","Balongdowo","Bayemgede","Betet","Bumirejo","Cengkir","Jipo","Karangan","Kepoh","Kranggan","Mudung","Nglumber","Ngrowo","Pohwates","Simorejo","Sugihwaras","Sumberagung","Sumberoto","Tlogorejo","Turigede","Woro"],
   "Malo": ["Banjarejo","Dukohlor","Kacangan","Kemiri","Ketileng","Klotok","Ngujung","Petak","Rendeng","Sukorejo","Sumberejo","Tambakromo","Tanggungan","Temu","Tlogorejo"],
@@ -743,8 +744,7 @@ var WILAYAH = {
   "Sumberejo": ["Banjarsari","Deru","Karangdinoyo","Kayulemah","Kedungrejo","Margoagung","Mlinjeng","Ngampal","Pejambon","Pekuwon","Prayungan","Sambongrejo","Sendangagung","Sumberejo","Sumberharjo","Sumuragung","Talun","Teleng","Tlogohaji","Wotan"],
   "Tambakrejo": ["Bakalan","Dolokgede","Gading","Gamongan","Jatimulyo","Kalisalam","Kedungpenganten","Malingmati","Mulyorejo","Napis","Ngrancang","Pengkol","Pucangan","Sukorejo","Tambakrejo","Tanjung","Turirejo"],
   "Temayang": ["Bakulan","Belun","Buntalan","Jono","Kedungsari","Ngujung","Pandantoyo","Papringan","Soko","Temayang"],
-  "Trucuk": ["Banjarsari","Guyangan","Kandangan","Kanten","Mori","Padang","Pagerwesi","Sranak","Sumbangtimun","Sumberejo","Trucuk","Tulungrejo"],
-  "Kedewan": ["Kawengan","Kedewan","Beji","Wonosari","Ngrawoh"]
+  "Trucuk": ["Banjarsari","Guyangan","Kandangan","Kanten","Mori","Padang","Pagerwesi","Sranak","Sumbangtimun","Sumberejo","Trucuk","Tulungrejo"]
 };
 
 var SCHOOL_LAT = -7.1782;
@@ -765,7 +765,7 @@ var chartInden = null, chartGender = null;
    ============================================================ */
 document.addEventListener('DOMContentLoaded', function(){
   try {
-    /* 🎯 Paksa tampilan awal = Dashboard */
+    /* Paksa tampilan awal = Dashboard */
     document.querySelectorAll('.page').forEach(function(p){
       p.classList.add('hidden');
       p.style.display = 'none';
@@ -776,7 +776,7 @@ document.addEventListener('DOMContentLoaded', function(){
       dashEl.style.display = 'block';
     }
 
-    /* 🎯 Pastikan menu Pengaturan tersembunyi */
+    /* Pastikan menu Pengaturan tersembunyi */
     var mp = document.getElementById('menuPengaturan');
     if(mp){
       mp.classList.add('hidden');
@@ -1070,7 +1070,7 @@ function simpanPengaturan(){
   API_URL = url;
   apiUrlLocked = true;
 
-  alert('✅ URL berhasil disimpan & TERKUNCI!\n\nUntuk distribusi ke device lain:\n1. Klik "Download File HTML Terkonfigurasi"\n2. Upload file ke hosting\n3. Semua device akan OTOMATIS terhubung');
+  alert('URL berhasil disimpan & TERKUNCI!\n\nUntuk distribusi ke device lain:\n1. Klik "Download File HTML Terkonfigurasi"\n2. Upload file ke hosting\n3. Semua device akan OTOMATIS terhubung');
 
   updatePengaturanUI();
   loadFromSheets();
@@ -1122,7 +1122,7 @@ function prosesDownloadHTML(html){
 
   if(!regex.test(html)){
     showLoading(false);
-    alert('⚠️ Gagal menanamkan URL.\n\nLakukan manual:\n1. Buka file HTML dengan editor\n2. Cari: var DEFAULT_API_URL = \'\';\n3. Ganti dengan: ' + newLine);
+    alert('Gagal menanamkan URL.\n\nLakukan manual:\n1. Buka file HTML dengan editor\n2. Cari: var DEFAULT_API_URL = \'\';\n3. Ganti dengan: ' + newLine);
     return;
   }
 
@@ -1139,7 +1139,7 @@ function prosesDownloadHTML(html){
   URL.revokeObjectURL(url);
 
   showLoading(false);
-  alert('✅ File HTML terkonfigurasi berhasil di-download!\n\nUpload ke hosting (Netlify/GitHub Pages) → semua device OTOMATIS terhubung.');
+  alert('File HTML terkonfigurasi berhasil di-download!\n\nUpload ke hosting → semua device OTOMATIS terhubung.');
 }
 
 function showUrlForHardcode(){
@@ -1151,25 +1151,17 @@ function showUrlForHardcode(){
   ta.select();
   try { document.execCommand('copy'); } catch(e){}
   document.body.removeChild(ta);
-  alert('✅ Baris kode sudah di-copy:\n\n' + line + '\n\nPaste ke file HTML menggantikan:\nvar DEFAULT_API_URL = \'\';');
+  alert('Baris kode sudah di-copy:\n\n' + line + '\n\nPaste ke file HTML menggantikan:\nvar DEFAULT_API_URL = \'\';');
 }
 
 /* ============================================================
    APPS SCRIPT CODE
    ============================================================ */
 var KODE_APPS_SCRIPT = [
-"/* GOOGLE APPS SCRIPT — API Database SDNMT 2027 */",
+"/* GOOGLE APPS SCRIPT - API Database SDNMT 2027 */",
 "const SHEET_NAME = 'Inden';",
 "const FOLDER_NAME = 'SDNMT Files 2027';",
-"const HEADERS = [",
-"  'id', 'timestamp', 'nama', 'nisn', 'jk', 'tempatLahir', 'tglLahir', 'umur',",
-"  'nik', 'noKK', 'asalSekolah', 'agama', 'alamat', 'rtrw', 'kodepos',",
-"  'modeWilayah', 'kecamatan', 'desa', 'kabupaten', 'provinsi',",
-"  'namaAyah', 'kerjaAyah', 'gajiAyah', 'namaIbu', 'kerjaIbu', 'gajiIbu',",
-"  'waliSiswa', 'kerjaWali', 'gajiWali', 'hpOrtu', 'email',",
-"  'lat', 'lng', 'jarak', 'jarakNum',",
-"  'fileKK', 'fileKTP', 'fileAkta', 'fileFoto', 'tglDaftar'",
-"];",
+"const HEADERS = ['id','timestamp','nama','nisn','jk','tempatLahir','tglLahir','umur','nik','noKK','asalSekolah','agama','alamat','rtrw','kodepos','modeWilayah','kecamatan','desa','kabupaten','provinsi','namaAyah','kerjaAyah','gajiAyah','namaIbu','kerjaIbu','gajiIbu','waliSiswa','kerjaWali','gajiWali','hpOrtu','email','lat','lng','jarak','jarakNum','fileKK','fileKTP','fileAkta','fileFoto','tglDaftar'];",
 "function getSheet() {",
 "  const ss = SpreadsheetApp.getActiveSpreadsheet();",
 "  let sheet = ss.getSheetByName(SHEET_NAME);",
@@ -1191,9 +1183,7 @@ var KODE_APPS_SCRIPT = [
 "function handleRequest(e) {",
 "  try {",
 "    let params = {};",
-"    if (e.postData && e.postData.contents) {",
-"      try { params = JSON.parse(e.postData.contents); } catch (err) {}",
-"    }",
+"    if (e.postData && e.postData.contents) { try { params = JSON.parse(e.postData.contents); } catch (err) {} }",
 "    if (e.parameter) { for (let k in e.parameter) params[k] = e.parameter[k]; }",
 "    const action = params.action || 'getAll';",
 "    let result;",
@@ -1202,7 +1192,7 @@ var KODE_APPS_SCRIPT = [
 "      case 'add': result = { success: true, data: addData(params.data) }; break;",
 "      case 'update': result = { success: true, data: updateData(params.data) }; break;",
 "      case 'delete': result = { success: true, data: deleteData(params.id) }; break;",
-"      default: result = { success: false, error: 'Unknown action: ' + action };",
+"      default: result = { success: false, error: 'Unknown action' };",
 "    }",
 "    return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);",
 "  } catch (err) {",
@@ -1218,13 +1208,8 @@ var KODE_APPS_SCRIPT = [
 "    const obj = {};",
 "    HEADERS.forEach(function (h, i) {",
 "      let val = row[i];",
-"      if (typeof val === 'string' && val.startsWith('{')) {",
-"        try { val = JSON.parse(val); } catch (e) {}",
-"      }",
-"      if ((h === 'id' || h === 'jarakNum' || h === 'lat' || h === 'lng') && val !== '' && val !== null) {",
-"        const n = Number(val);",
-"        if (!isNaN(n)) val = n;",
-"      }",
+"      if (typeof val === 'string' && val.startsWith('{')) { try { val = JSON.parse(val); } catch (e) {} }",
+"      if ((h === 'id' || h === 'jarakNum' || h === 'lat' || h === 'lng') && val !== '' && val !== null) { const n = Number(val); if (!isNaN(n)) val = n; }",
 "      obj[h] = val;",
 "    });",
 "    return obj;",
@@ -1234,10 +1219,8 @@ var KODE_APPS_SCRIPT = [
 "  if (!data) throw new Error('Data kosong');",
 "  const sheet = getSheet();",
 "  data.timestamp = new Date();",
-"  ['fileKK', 'fileKTP', 'fileAkta', 'fileFoto'].forEach(function (field) {",
-"    if (data[field] && data[field].base64) {",
-"      data[field] = saveFileToDrive(data[field]);",
-"    }",
+"  ['fileKK','fileKTP','fileAkta','fileFoto'].forEach(function (field) {",
+"    if (data[field] && data[field].base64) { data[field] = saveFileToDrive(data[field]); }",
 "  });",
 "  const row = HEADERS.map(function (h) {",
 "    let v = data[h];",
@@ -1256,10 +1239,8 @@ var KODE_APPS_SCRIPT = [
 "  const ids = sheet.getRange(2, 1, lastRow - 1, 1).getValues().flat();",
 "  const rowIndex = ids.findIndex(function (id) { return String(id) === String(data.id); });",
 "  if (rowIndex === -1) throw new Error('Data tidak ditemukan');",
-"  ['fileKK', 'fileKTP', 'fileAkta', 'fileFoto'].forEach(function (field) {",
-"    if (data[field] && data[field].base64) {",
-"      data[field] = saveFileToDrive(data[field]);",
-"    }",
+"  ['fileKK','fileKTP','fileAkta','fileFoto'].forEach(function (field) {",
+"    if (data[field] && data[field].base64) { data[field] = saveFileToDrive(data[field]); }",
 "  });",
 "  const row = HEADERS.map(function (h) {",
 "    let v = data[h];",
@@ -1287,13 +1268,7 @@ var KODE_APPS_SCRIPT = [
 "  const blob = Utilities.newBlob(Utilities.base64Decode(base64), fileData.mimeType || 'application/octet-stream', fileData.name || 'file');",
 "  const file = folder.createFile(blob);",
 "  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);",
-"  return {",
-"    id: file.getId(),",
-"    name: file.getName(),",
-"    url: 'https://drive.google.com/uc?export=view&id=' + file.getId(),",
-"    previewUrl: 'https://drive.google.com/file/d/' + file.getId() + '/preview',",
-"    mimeType: fileData.mimeType",
-"  };",
+"  return { id: file.getId(), name: file.getName(), url: 'https://drive.google.com/uc?export=view&id=' + file.getId(), previewUrl: 'https://drive.google.com/file/d/' + file.getId() + '/preview', mimeType: fileData.mimeType };",
 "}"
 ].join('\n');
 
@@ -1491,13 +1466,11 @@ function showPage(name){
     return;
   }
 
-  /* Sembunyikan semua halaman */
   document.querySelectorAll('.page').forEach(function(p){
     p.classList.add('hidden');
     p.style.display = 'none';
   });
 
-  /* Tampilkan halaman yang dipilih */
   var target = document.getElementById('page-' + name);
   if(target){
     target.classList.remove('hidden');
@@ -1991,12 +1964,10 @@ function toggleLogin(){
     if(!confirm('Logout dari mode admin?')) return;
     isAdmin = false;
 
-    /* Paksa kembali ke Dashboard jika sedang di Pengaturan */
     if(!document.getElementById('page-pengaturan').classList.contains('hidden')){
       showPage('dashboard');
     }
 
-    /* Sembunyikan menu Pengaturan */
     var mp = document.getElementById('menuPengaturan');
     if(mp){
       mp.classList.add('hidden');
@@ -2053,7 +2024,6 @@ function updateAdminControls(){
     infoDownloadDaftar.classList.add('hidden');
     if(adminActionInfo) adminActionInfo.classList.remove('hidden');
 
-    /* Tampilkan menu Pengaturan */
     if(menuPengaturan){
       menuPengaturan.classList.remove('hidden');
       menuPengaturan.style.display = 'flex';
@@ -2066,7 +2036,6 @@ function updateAdminControls(){
     infoDownloadDaftar.classList.remove('hidden');
     if(adminActionInfo) adminActionInfo.classList.add('hidden');
 
-    /* Sembunyikan menu Pengaturan */
     if(menuPengaturan){
       menuPengaturan.classList.add('hidden');
       menuPengaturan.style.display = 'none';
