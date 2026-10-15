@@ -491,33 +491,49 @@
         </div>
       </div>
 
-      <div class="card p-4 md:p-6 mb-4 bg-green-50 border-2 border-green-300">
-        <h3 class="font-bold text-green-900 border-b pb-2 mb-4 text-base md:text-lg">
-          <i class="fas fa-share-alt text-green-600 mr-2"></i>Distribusi ke Device Lain
+      <!-- DISTRIBUSI -->
+      <div class="card p-4 md:p-6 mb-4 bg-amber-50 border-2 border-amber-400">
+        <h3 class="font-bold text-amber-900 border-b pb-2 mb-4 text-base md:text-lg">
+          <i class="fas fa-exclamation-triangle text-amber-600 mr-2"></i>PENTING: Agar Terhubung di Device Lain
         </h3>
-        <p class="text-xs md:text-sm text-green-900 mb-4">
-          Agar aplikasi <b>otomatis terhubung</b> di semua device (laptop/HP lain):
+        <p class="text-xs md:text-sm text-amber-900 mb-3">
+          <b>URL yang Anda simpan hanya tersimpan di perangkat ini (browser ini).</b>
+          Untuk membuat device lain (HP/laptop lain) otomatis terhubung, gunakan salah satu cara berikut:
         </p>
 
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div class="bg-white p-3 md:p-4 rounded-lg border border-amber-200 mb-3">
+          <p class="text-xs md:text-sm font-bold text-amber-900 mb-2">
+            <i class="fas fa-check-circle text-green-600 mr-1"></i>Cara 1: Hardcode Manual (Paling Mudah)
+          </p>
+          <ol class="text-xs md:text-sm text-slate-700 list-decimal pl-5 space-y-1">
+            <li>Klik <b>"Copy Baris Kode URL"</b> di bawah</li>
+            <li>Buka file <code>database-sdnmt-2027.html</code> di Notepad/VSCode</li>
+            <li>Cari: <code>var DEFAULT_API_URL = '';</code></li>
+            <li>Ganti dengan baris yang sudah dicopy</li>
+            <li>Simpan file → kirim ke device lain → buka</li>
+          </ol>
+        </div>
+
+        <div class="bg-white p-3 md:p-4 rounded-lg border border-amber-200">
+          <p class="text-xs md:text-sm font-bold text-amber-900 mb-2">
+            <i class="fas fa-check-circle text-green-600 mr-1"></i>Cara 2: Upload ke Hosting (Paling Profesional)
+          </p>
+          <ol class="text-xs md:text-sm text-slate-700 list-decimal pl-5 space-y-1">
+            <li>Klik <b>"Download File HTML Terkonfigurasi"</b> → dapat file baru</li>
+            <li>Buka <b>https://app.netlify.com/drop</b></li>
+            <li>Drag & drop file tersebut ke kotak Netlify</li>
+            <li>Dapat URL seperti <code>https://database-sdnmt.netlify.app</code></li>
+            <li>Bagikan URL tersebut ke semua guru/orang tua</li>
+          </ol>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mt-4">
           <button onclick="downloadPreconfiguredHTML()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm shadow">
             <i class="fas fa-download"></i> Download File HTML Terkonfigurasi
           </button>
           <button onclick="showUrlForHardcode()" class="btn-biru px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm">
             <i class="fas fa-code"></i> Copy Baris Kode URL
           </button>
-        </div>
-
-        <div class="bg-white p-3 md:p-4 rounded-lg border border-green-200">
-          <p class="text-xs md:text-sm font-semibold text-green-900 mb-2">
-            <i class="fas fa-info-circle mr-1"></i>Cara distribusi:
-          </p>
-          <ol class="text-xs md:text-sm text-slate-700 list-decimal pl-5 space-y-1">
-            <li>Klik <b>"Download File HTML Terkonfigurasi"</b> → dapat file HTML baru yang sudah berisi URL</li>
-            <li>Upload file ke hosting gratis: <b>Netlify Drop</b> (drag-drop), <b>GitHub Pages</b>, atau <b>Firebase Hosting</b></li>
-            <li>Bagikan URL hosting ke pengguna</li>
-            <li>Semua device yang buka URL tersebut akan <b>OTOMATIS terhubung</b></li>
-          </ol>
         </div>
       </div>
 
@@ -706,15 +722,15 @@
 
 <script>
 /* ============================================================
-   KONFIGURASI URL
+   KONFIGURASI URL — GANTI BARIS DI BAWAH UNTUK HARCODE
    ============================================================ */
-var DEFAULT_API_URL = 'https://script.google.com/macros/s/AKfycbxBTZlCd4mQeyXSm_fthPCjALC0giT2VvbosKnCcw4iOPGTBNboVkX6PgFAynvSxxpm/exec';
+var DEFAULT_API_URL = ''; /* <- Isi URL Apps Script di sini agar otomatis terhubung */
 var API_URL = DEFAULT_API_URL || localStorage.getItem('databaseSDNMT2027_apiUrl') || '';
 var apiUrlLocked = localStorage.getItem('databaseSDNMT2027_apiUrlLocked') === 'true' || (DEFAULT_API_URL !== '');
 var lastConnectionTest = null;
 
 /* ============================================================
-   DATA WILAYAH BOJONEGORO — 28 KECAMATAN (Data Terbaru & Lengkap)
+   DATA WILAYAH BOJONEGORO — 28 KECAMATAN (Lengkap)
    ============================================================ */
 var WILAYAH = {
   "Balen": ["Balenrejo","Bulaklo","Bulu","Kabunan","Kedungbendo","Kedungdowo","Kemamang","Kenep","Lengkong","Mayangkawis","Mulyoagung","Mulyorejo","Ngadiluhur","Pilanggede","Pohbogo","Prambatan","Sekaran","Sidobandung","Sobontoro","Suwaloh"],
@@ -726,7 +742,7 @@ var WILAYAH = {
   "Gondang": ["Bumela","Gondang","Jari","Krondonan","Pajeng","Pragelan","Senganten"],
   "Kalitidu": ["Brenggolo","Grebegan","Kalitidu","Leran","Mayanggeneng","Mayangrejo","Mlaten","Mojo","Mojosari","Ngiringinrejo","Ngujo","Panjunan","Pilangsari","Pungpungan","Sukoharjo","Sumengko","Talok","Wotanngare"],
   "Kanor": ["Bakung","Bungur","Cangaan","Caruban","Gedongarum","Kabalan","Kanor","Kedungprimpen","Nglarangan","Palembon","Pesen","Pilang","Piyak","Prangi","Purwosari","Samberan","Sedeng","Semambung","Simbatan","Sumberjo","Tambahrejo","Tanjung","Temu","Tlogohaji"],
-  "Kapas": ["Bakalan","Bangilan","Bendo","Bogo","Dukuh","Kalirejo","Kalianyar","Kapas","Kedaton","Kumpulrejo","Mulyoagung","Ngampel","Padangmentoyo","Plesungan","Sambiroto","Semenpinggir","Sukowati","Tanjungharjo","Tapelan","Tembeling","Wedi"],
+  "Kapas": ["Bakalan","Bangilan","Bendo","Bogo","Dukuh","Kalirejo","Kapas","Kedaton","Kumpulrejo","Mulyoagung","Ngampel","Padangmentoyo","Plesungan","Sambiroto","Semenpinggir","Sukowati","Tanjungharjo","Tapelan","Tembeling","Wedi"],
   "Kasiman": ["Batokan","Besah","Kasiman","Kedungasri","Nglateng","Ngaglik","Sambeng","Sekaran","Sidomukti","Tambakmerak"],
   "Kedewan": ["Beji","Kawengan","Kedewan","Ngrawoh","Wonosari"],
   "Kedungadem": ["Babad","Balongcabe","Dayukidul","Drokilo","Duwel","Geger","Jamberejo","Kedungadem","Kedungrejo","Kendung","Kepohkidul","Megale","Mlideg","Mojorejo","Ngrandu","Panjang","Pejok","Sidomulyo","Sidorejo","Tlogoagung","Tondomulo"],
@@ -776,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function(){
       dashEl.style.display = 'block';
     }
 
-    /* Pastikan menu Pengaturan tersembunyi */
+    /* Sembunyikan menu Pengaturan */
     var mp = document.getElementById('menuPengaturan');
     if(mp){
       mp.classList.add('hidden');
@@ -969,7 +985,7 @@ function deleteFromSheets(id, callback){
 }
 
 /* ============================================================
-   PENGATURAN
+   PENGATURAN — Deteksi otomatis hardcode vs localStorage
    ============================================================ */
 function updatePengaturanUI(){
   var infoUrl = document.getElementById('infoUrl');
@@ -987,24 +1003,49 @@ function updatePengaturanUI(){
   if(!inputUrl) return;
   if(API_URL) inputUrl.value = API_URL;
 
-  if(apiUrlLocked){
+  /* Deteksi mode HARDCODED */
+  var isHardcoded = (DEFAULT_API_URL && DEFAULT_API_URL !== '');
+
+  if(isHardcoded){
+    /* MODE TERKUNCI PERMANEN */
     inputUrl.disabled = true;
     inputUrl.classList.add('bg-slate-100', 'cursor-not-allowed');
     badgeLock.classList.remove('hidden');
+    badgeLock.innerHTML = '<i class="fas fa-lock"></i> Terkunci Permanen';
+    btnSimpan.classList.add('hidden');
+    btnUnlock.classList.add('hidden');
+    btnReset.classList.add('hidden');
+
+    statusEl.className = 'connection-status connected';
+    statusEl.querySelector('i').className = 'fas fa-lock text-2xl text-green-600';
+    document.getElementById('statusKoneksiText').textContent = 'URL Terkunci Permanen';
+    document.getElementById('statusKoneksiDetail').textContent = 'URL tertanam di file HTML. Semua device yang membuka file ini otomatis terhubung.';
+    return;
+  }
+
+  if(apiUrlLocked){
+    /* Mode lock via localStorage */
+    inputUrl.disabled = true;
+    inputUrl.classList.add('bg-slate-100', 'cursor-not-allowed');
+    badgeLock.classList.remove('hidden');
+    badgeLock.innerHTML = '<i class="fas fa-lock"></i> URL Terkunci';
     btnSimpan.classList.add('hidden');
     btnUnlock.classList.remove('hidden');
     btnReset.classList.add('hidden');
+
     statusEl.className = 'connection-status connected';
     statusEl.querySelector('i').className = 'fas fa-lock text-2xl text-green-600';
-    document.getElementById('statusKoneksiText').textContent = 'URL Terkunci';
-    document.getElementById('statusKoneksiDetail').textContent = 'URL tersimpan permanen. Klik "Unlock" untuk mengubah.';
+    document.getElementById('statusKoneksiText').textContent = 'URL Terkunci (lokal)';
+    document.getElementById('statusKoneksiDetail').textContent = 'URL hanya tersimpan di perangkat ini. Untuk device lain, klik "Download File HTML Terkonfigurasi" atau "Copy Baris Kode URL".';
   } else {
+    /* Mode terbuka */
     inputUrl.disabled = false;
     inputUrl.classList.remove('bg-slate-100', 'cursor-not-allowed');
     badgeLock.classList.add('hidden');
     btnSimpan.classList.remove('hidden');
     btnUnlock.classList.add('hidden');
     btnReset.classList.remove('hidden');
+
     if(API_URL){
       statusEl.className = 'connection-status unknown';
       statusEl.querySelector('i').className = 'fas fa-question-circle text-2xl text-amber-600';
@@ -1063,14 +1104,14 @@ function simpanPengaturan(){
   if(url.indexOf('/exec') === -1){
     if(!confirm('URL tidak berakhiran /exec. Yakin simpan?')) return;
   }
-  if(!confirm('Setelah disimpan, URL akan TERKUNCI.\n\nAnda perlu klik "Unlock" untuk mengubah.\n\nLanjutkan?')) return;
+  if(!confirm('Setelah disimpan, URL akan TERKUNCI.\n\nCATATAN PENTING:\nURL hanya tersimpan di perangkat ini.\nUntuk device lain, klik "Download File HTML Terkonfigurasi" atau "Copy Baris Kode URL".\n\nLanjutkan?')) return;
 
   localStorage.setItem('databaseSDNMT2027_apiUrl', url);
   localStorage.setItem('databaseSDNMT2027_apiUrlLocked', 'true');
   API_URL = url;
   apiUrlLocked = true;
 
-  alert('URL berhasil disimpan & TERKUNCI!\n\nUntuk distribusi ke device lain:\n1. Klik "Download File HTML Terkonfigurasi"\n2. Upload file ke hosting\n3. Semua device akan OTOMATIS terhubung');
+  alert('URL berhasil disimpan & TERKUNCI di perangkat ini!\n\nUntuk distribusi ke device lain:\n1. Klik "Download File HTML Terkonfigurasi"\n2. Upload file ke hosting\n3. Semua device akan OTOMATIS terhubung');
 
   updatePengaturanUI();
   loadFromSheets();
@@ -1151,7 +1192,7 @@ function showUrlForHardcode(){
   ta.select();
   try { document.execCommand('copy'); } catch(e){}
   document.body.removeChild(ta);
-  alert('Baris kode sudah di-copy:\n\n' + line + '\n\nPaste ke file HTML menggantikan:\nvar DEFAULT_API_URL = \'\';');
+  alert('Baris kode sudah di-copy:\n\n' + line + '\n\nCara pakai:\n1. Buka file HTML di Notepad/VSCode\n2. Cari: var DEFAULT_API_URL = \'\';\n3. Ganti dengan baris di atas\n4. Simpan file\n5. Kirim ke device lain → otomatis terhubung');
 }
 
 /* ============================================================
