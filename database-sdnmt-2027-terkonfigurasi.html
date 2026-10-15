@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="id"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Database SDNMT 2027 — SD Negeri Model Terpadu Bojonegoro</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
   :root{ --biru-tua:#1e3a8a; --biru-muda:#3b82f6; --oranye:#f97316; }
   body{font-family:'Inter','Segoe UI',sans-serif; background:#f1f5f9;}
@@ -85,31 +86,31 @@
   .connection-status.disconnected{background:linear-gradient(135deg,#fee2e2,#fecaca); border-left:4px solid #dc2626;}
   .connection-status.unknown{background:linear-gradient(135deg,#fef3c7,#fde68a); border-left:4px solid #f59e0b;}
 </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.relative{position:relative}.inset-0{inset:0px}.z-20{z-index:20}.z-50{z-index:50}.z-\[60\]{z-index:60}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.ml-2{margin-left:0.5rem}.ml-auto{margin-left:auto}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-14{height:3.5rem}.h-20{height:5rem}.h-96{height:24rem}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.min-h-\[calc\(100vh-80px\)\]{min-height:calc(100vh - 80px)}.w-12{width:3rem}.w-14{width:3.5rem}.w-20{width:5rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-80{width:20rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-lg{max-width:32rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.cursor-not-allowed{cursor:not-allowed}.list-decimal{list-style-type:decimal}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.self-end{align-self:flex-end}.overflow-auto{overflow:auto}.overflow-x-auto{overflow-x:auto}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-tl-lg{border-top-left-radius:0.5rem}.rounded-tr-lg{border-top-right-radius:0.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-blue-900{--tw-border-opacity:1;border-color:rgb(30 58 138 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172 / var(--tw-border-opacity, 1))}.border-orange-400{--tw-border-opacity:1;border-color:rgb(251 146 60 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-green-600{--tw-border-opacity:1;border-color:rgb(22 163 74 / var(--tw-border-opacity, 1))}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-black\/70{background-color:rgb(0 0 0 / 0.7)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-400{--tw-bg-opacity:1;background-color:rgb(96 165 250 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-900{--tw-bg-opacity:1;background-color:rgb(30 58 138 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pl-5{padding-left:1.25rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.align-middle{vertical-align:middle}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-900{--tw-text-opacity:1;color:rgb(20 83 45 / var(--tw-text-opacity, 1))}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-orange-700{--tw-text-opacity:1;color:rgb(194 65 12 / var(--tw-text-opacity, 1))}.text-pink-500{--tw-text-opacity:1;color:rgb(236 72 153 / var(--tw-text-opacity, 1))}.text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-60{opacity:0.6}.opacity-70{opacity:0.7}.opacity-80{opacity:0.8}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-blue-200:hover{--tw-bg-opacity:1;background-color:rgb(191 219 254 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/15:hover{background-color:rgb(255 255 255 / 0.15)}.hover\:text-slate-700:hover{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}@media (min-width: 640px){.sm\:inline{display:inline}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:col-span-3{grid-column:span 3 / span 3}.md\:mb-6{margin-bottom:1.5rem}.md\:mb-8{margin-bottom:2rem}.md\:mt-6{margin-top:1.5rem}.md\:mt-8{margin-top:2rem}.md\:h-14{height:3.5rem}.md\:h-16{height:4rem}.md\:h-24{height:6rem}.md\:w-14{width:3.5rem}.md\:w-16{width:4rem}.md\:w-24{width:6rem}.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:gap-3{gap:0.75rem}.md\:gap-4{gap:1rem}.md\:gap-5{gap:1.25rem}.md\:gap-6{gap:1.5rem}.md\:p-10{padding:2.5rem}.md\:p-3{padding:0.75rem}.md\:p-4{padding:1rem}.md\:p-6{padding:1.5rem}.md\:p-8{padding:2rem}.md\:px-4{padding-left:1rem;padding-right:1rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+</head>
 <body class="min-h-screen">
 
 <!-- LOADING OVERLAY -->
-<div id="loadingOverlay" class="loading-spinner active">
+<div id="loadingOverlay" class="loading-spinner">
   <div class="spinner"></div>
-  <p class="text-white text-lg font-semibold" id="loadingText">Menyiapkan file HTML...</p>
+  <p class="text-white text-lg font-semibold" id="loadingText">Memuat...</p>
 </div>
 
 <!-- HEADER -->
 <header class="sidebar text-white px-4 md:px-6 py-4 flex items-center justify-between shadow-lg relative z-20">
   <div class="flex items-center gap-3 md:gap-4">
-    <img id="logoHeader" src="https://via.placeholder.com/60/1e3a8a/ffffff?text=SD" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white object-cover bg-white" alt="Logo">
+    <img id="logoHeader" src="https://via.placeholder.com/60/1e3a8a/ffffff?text=SD" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white object-cover bg-white" alt="Logo"/>
     <div>
       <h1 class="text-base md:text-lg font-bold leading-tight">DATABASE SDNMT 2027</h1>
       <p class="text-xs opacity-80">SD Negeri Model Terpadu Bojonegoro</p>
     </div>
   </div>
   <div class="flex items-center gap-2 md:gap-3">
-    <span id="statusOnline" class="status-online">
-      <span class="dot-status"></span> <span id="statusText" class="hidden sm:inline">Online</span>
+    <span id="statusOnline" class="status-loading">
+      <span class="dot-status"></span> <span id="statusText" class="hidden sm:inline">Memuat...</span>
     </span>
-    <span id="adminBadge" class="badge"><i class="fas fa-shield-alt mr-1"></i>Admin</span>
+    <span id="adminBadge" class="badge hidden"><i class="fas fa-shield-alt mr-1"></i>Admin</span>
     <button onclick="toggleLogin()" class="btn-oranye px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm font-semibold flex items-center gap-2">
-      <i class="fas fa-user-lock pulse-icon"></i> <span id="loginBtnText" class="hidden sm:inline">Logout</span>
+      <i class="fas fa-user-lock pulse-icon"></i> <span id="loginBtnText" class="hidden sm:inline">Login Admin</span>
     </button>
   </div>
 </header>
@@ -129,7 +130,7 @@
     <a href="#" onclick="showPage('daftar')" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/15">
       <i class="fas fa-database w-5"></i> <span class="menu-text">Database</span>
     </a>
-    <a href="#" onclick="showPage('pengaturan')" id="menuPengaturan" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/15">
+    <a href="#" onclick="showPage('pengaturan')" id="menuPengaturan" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/15 hidden" style="display:none;">
       <i class="fas fa-cog w-5"></i> <span class="menu-text">Pengaturan</span>
       <span class="badge-admin ml-auto text-xs">ADMIN</span>
     </a>
@@ -141,7 +142,7 @@
   <main class="flex-1 p-3 md:p-6 overflow-auto">
 
     <!-- ============ DASHBOARD ============ -->
-    <section id="page-dashboard" class="page fade-in hidden">
+    <section id="page-dashboard" class="page fade-in" style="display:block;">
       <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 md:mb-6"><i class="fas fa-chart-pie text-orange-500 mr-2"></i>Dashboard</h2>
 
       <div class="note-box mb-4 md:mb-6 fade-in">
@@ -160,10 +161,10 @@
         </div>
       </div>
 
-      <div id="infoKoneksi" class="card p-3 md:p-4 mb-4 md:mb-6 bg-green-50 border-l-4 border-green-600">
+      <div id="infoKoneksi" class="card p-3 md:p-4 mb-4 md:mb-6 bg-blue-50 border-l-4 border-blue-600">
         <p class="text-xs md:text-sm text-blue-900">
           <i class="fas fa-table text-blue-600 mr-2"></i>
-          <span id="koneksiStatusText"><b>Terhubung</b> ke Google Spreadsheet. Total: <b>0</b> data.</span>
+          <span id="koneksiStatusText">Memeriksa koneksi Google Spreadsheet...</span>
         </p>
       </div>
 
@@ -185,12 +186,12 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <div class="card p-4 md:p-6">
           <h3 class="font-semibold text-slate-700 mb-4 text-sm md:text-base"><i class="fas fa-chart-donut text-orange-500 mr-2"></i>Jumlah Data Masuk</h3>
-          <div class="flex justify-center"><canvas id="chartInden" width="0" height="0" style="box-sizing: border-box; display: block; height: 0px; width: 0px;"></canvas></div>
+          <div class="flex justify-center"><canvas id="chartInden" width="260" height="260"></canvas></div>
           <p class="text-center mt-3 text-2xl font-bold text-blue-900" id="labelInden">0</p>
         </div>
         <div class="card p-4 md:p-6">
           <h3 class="font-semibold text-slate-700 mb-4 text-sm md:text-base"><i class="fas fa-venus-mars text-orange-500 mr-2"></i>Laki-laki vs Perempuan</h3>
-          <div class="flex justify-center"><canvas id="chartGender" width="0" height="0" style="box-sizing: border-box; display: block; height: 0px; width: 0px;"></canvas></div>
+          <div class="flex justify-center"><canvas id="chartGender" width="260" height="260"></canvas></div>
           <div class="grid grid-cols-2 gap-4 mt-4 text-center">
             <div><p class="text-slate-500 text-xs md:text-sm">Laki-laki</p><p class="text-xl md:text-2xl font-bold text-blue-600" id="labelL">0</p><p class="text-xs text-slate-400" id="persenL">0%</p></div>
             <div><p class="text-slate-500 text-xs md:text-sm">Perempuan</p><p class="text-xl md:text-2xl font-bold text-pink-500" id="labelP">0</p><p class="text-xs text-slate-400" id="persenP">0%</p></div>
@@ -199,7 +200,7 @@
       </div>
 
       <div class="card p-4 md:p-6 mt-4 md:mt-6 flex flex-wrap items-center gap-4 md:gap-6">
-        <img id="adminPhoto" src="https://via.placeholder.com/100/1e3a8a/ffffff?text=A" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-orange-400 bg-white" alt="Admin">
+        <img id="adminPhoto" src="https://via.placeholder.com/100/1e3a8a/ffffff?text=A" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-orange-400 bg-white" alt="Admin"/>
         <div>
           <p class="text-sm text-slate-500">Administrator</p>
           <p class="font-bold text-base md:text-lg text-blue-900">SD Negeri Model Terpadu Bojonegoro</p>
@@ -208,21 +209,21 @@
     </section>
 
     <!-- ============ ISI FORMULIR ============ -->
-    <section id="page-inden" class="page hidden fade-in">
+    <section id="page-inden" class="page hidden fade-in" style="display:none;">
       <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 md:mb-6"><i class="fas fa-file-signature text-orange-500 mr-2"></i>Isi Formulir</h2>
       <form id="formInden" onsubmit="simpanInden(event)" class="card p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
 
         <div class="md:col-span-2"><h3 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm md:text-base"><i class="fas fa-child mr-2"></i>Data Siswa</h3></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Lengkap *</label><input name="nama" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">NISN *</label><input name="nisn" required="" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Lengkap *</label><input name="nama" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">NISN *</label><input name="nisn" required class="input-field"/></div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Jenis Kelamin *</label>
-          <select name="jk" required="" class="input-field"><option value="">-- Pilih --</option><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
+          <select name="jk" required class="input-field"><option value="">-- Pilih --</option><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
         </div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Tempat Lahir *</label><input name="tempatLahir" required="" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Tempat Lahir *</label><input name="tempatLahir" required class="input-field"/></div>
 
         <div>
           <label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Tanggal Lahir *</label>
-          <input name="tglLahir" id="inputTglLahir" type="date" required="" onchange="hitungUmur()" oninput="hitungUmur()" class="input-field">
+          <input name="tglLahir" id="inputTglLahir" type="date" required onchange="hitungUmur()" oninput="hitungUmur()" class="input-field"/>
           <div id="ageBox" class="age-box hidden">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
@@ -240,22 +241,22 @@
             </div>
             <p class="text-xs text-center text-slate-500 mt-1" id="ageText">—</p>
           </div>
-          <input type="hidden" name="umurSiswa" id="umurHidden">
+          <input type="hidden" name="umurSiswa" id="umurHidden"/>
         </div>
 
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">NIK Siswa *</label><input name="nik" required="" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">NIK Siswa *</label><input name="nik" required class="input-field"/></div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1"><i class="fas fa-id-card text-orange-500 mr-1"></i>No. Kartu Keluarga (KK) *</label>
-          <input name="noKK" required="" placeholder="Contoh: 3516xxxxxxxxxxxx" class="input-field">
+          <input name="noKK" required placeholder="Contoh: 3516xxxxxxxxxxxx" class="input-field"/>
         </div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Asal Sekolah *</label>
-          <input name="asalSekolah" required="" placeholder="Contoh: TK Pertiwi Bojonegoro" class="input-field">
+          <input name="asalSekolah" required placeholder="Contoh: TK Pertiwi Bojonegoro" class="input-field"/>
         </div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Agama *</label>
-          <select name="agama" required="" class="input-field"><option value="">-- Pilih --</option><option>Islam</option><option>Kristen</option><option>Katolik</option><option>Hindu</option><option>Buddha</option><option>Konghucu</option></select>
+          <select name="agama" required class="input-field"><option value="">-- Pilih --</option><option>Islam</option><option>Kristen</option><option>Katolik</option><option>Hindu</option><option>Buddha</option><option>Konghucu</option></select>
         </div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Alamat Jalan *</label><input name="alamat" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">RT/RW *</label><input name="rtrw" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kode Pos</label><input name="kodepos" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Alamat Jalan *</label><input name="alamat" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">RT/RW *</label><input name="rtrw" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kode Pos</label><input name="kodepos" class="input-field"/></div>
 
         <div class="md:col-span-2 mt-4">
           <h3 class="font-semibold text-blue-900 border-b pb-2 mb-3 text-sm md:text-base"><i class="fas fa-map-marker-alt mr-2"></i>Wilayah Domisili</h3>
@@ -264,36 +265,36 @@
             <div id="optDalam" class="wilayah-opt active" onclick="setWilayah('dalam')"><i class="fas fa-map-marked-alt mr-1"></i> Dalam Kab. Bojonegoro</div>
             <div id="optLuar" class="wilayah-opt" onclick="setWilayah('luar')"><i class="fas fa-globe mr-1"></i> Luar Kab. Bojonegoro</div>
           </div>
-          <input type="hidden" name="modeWilayah" id="modeWilayah" value="dalam">
+          <input type="hidden" name="modeWilayah" id="modeWilayah" value="dalam"/>
 
           <div id="wilayahDalam" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kecamatan *</label>
-              <select name="kecamatan" id="selKec" onchange="isiDesa()" class="input-field" required=""><option value="">-- Pilih Kecamatan --</option><option value="Balen">Balen</option><option value="Baureno">Baureno</option><option value="Bojonegoro">Bojonegoro</option><option value="Bubulan">Bubulan</option><option value="Dander">Dander</option><option value="Gayam">Gayam</option><option value="Gondang">Gondang</option><option value="Kalitidu">Kalitidu</option><option value="Kanor">Kanor</option><option value="Kapas">Kapas</option><option value="Kasiman">Kasiman</option><option value="Kedewan">Kedewan</option><option value="Kedungadem">Kedungadem</option><option value="Kepohbaru">Kepohbaru</option><option value="Malo">Malo</option><option value="Margomulyo">Margomulyo</option><option value="Ngambon">Ngambon</option><option value="Ngasem">Ngasem</option><option value="Ngraho">Ngraho</option><option value="Padangan">Padangan</option><option value="Purwosari">Purwosari</option><option value="Sekar">Sekar</option><option value="Sugihwaras">Sugihwaras</option><option value="Sukosewu">Sukosewu</option><option value="Sumberejo">Sumberejo</option><option value="Tambakrejo">Tambakrejo</option><option value="Temayang">Temayang</option><option value="Trucuk">Trucuk</option></select>
+              <select name="kecamatan" id="selKec" onchange="isiDesa()" class="input-field" required><option value="">-- Pilih Kecamatan --</option></select>
             </div>
             <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Desa/Kelurahan *</label>
-              <select name="desa" id="selDesa" class="input-field" required=""><option value="">-- Pilih Desa --</option></select>
+              <select name="desa" id="selDesa" class="input-field" required><option value="">-- Pilih Desa --</option></select>
             </div>
             <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kabupaten</label>
-              <input name="kabupaten" value="Bojonegoro" readonly="" class="input-field bg-slate-100">
+              <input name="kabupaten" value="Bojonegoro" readonly class="input-field bg-slate-100"/>
             </div>
           </div>
 
           <div id="wilayahLuar" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 hidden">
-            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Desa/Kelurahan *</label><input name="desaLuar" placeholder="Nama desa/kelurahan" class="input-field"></div>
-            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kecamatan *</label><input name="kecamatanLuar" placeholder="Nama kecamatan" class="input-field"></div>
-            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kabupaten/Kota *</label><input name="kabupatenLuar" placeholder="Nama kabupaten/kota" class="input-field"></div>
-            <div class="md:col-span-3"><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Provinsi</label><input name="provinsiLuar" placeholder="Contoh: Jawa Timur" class="input-field"></div>
+            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Desa/Kelurahan *</label><input name="desaLuar" placeholder="Nama desa/kelurahan" class="input-field"/></div>
+            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kecamatan *</label><input name="kecamatanLuar" placeholder="Nama kecamatan" class="input-field"/></div>
+            <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Kabupaten/Kota *</label><input name="kabupatenLuar" placeholder="Nama kabupaten/kota" class="input-field"/></div>
+            <div class="md:col-span-3"><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Provinsi</label><input name="provinsiLuar" placeholder="Contoh: Jawa Timur" class="input-field"/></div>
           </div>
         </div>
 
         <div class="md:col-span-2 mt-4">
-          <h3 class="font-semibold text-blue-900 border-b pb-2 mb-3 text-sm md:text-base"><i class="fas fa-map-marked-alt mr-2"></i>Lokasi Rumah &amp; Jarak ke Sekolah</h3>
+          <h3 class="font-semibold text-blue-900 border-b pb-2 mb-3 text-sm md:text-base"><i class="fas fa-map-marked-alt mr-2"></i>Lokasi Rumah & Jarak ke Sekolah</h3>
           <p class="text-xs text-slate-500 mb-2"><i class="fas fa-info-circle text-blue-500 mr-1"></i>Klik pada peta untuk menandai lokasi rumah Anda.</p>
           <div class="flex flex-wrap gap-2 mb-2 text-xs">
             <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full"><i class="fas fa-school mr-1"></i>Sekolah</span>
             <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full"><i class="fas fa-home mr-1"></i>Rumah Anda</span>
           </div>
-          <div id="mapPicker" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://d.basemaps.cartocdn.com/light_all/14/13284/8519@2x.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-239px, -140px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -18px; margin-top: -18px; width: 36px; height: 36px; transform: translate3d(0px, 0px, 0px); z-index: 0;"><div style="background:#f97316;color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.35);font-size:15px;"><i class="fas fa-school"></i></div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(3.40094e+06px, 2.181e+06px, 0px) scale(8192);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap © CARTO</div></div></div></div>
+          <div id="mapPicker"></div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
             <div class="card p-3 bg-slate-50">
               <p class="text-xs text-slate-500 mb-1"><i class="fas fa-crosshairs mr-1"></i>Latitude</p>
@@ -316,68 +317,68 @@
               <i class="fas fa-redo mr-1"></i>Reset
             </button>
           </div>
-          <input type="hidden" name="latRumah" id="hiddenLat">
-          <input type="hidden" name="lngRumah" id="hiddenLng">
-          <input type="hidden" name="jarakRumah" id="hiddenJarak">
-          <input type="hidden" name="jarakNum" id="hiddenJarakNum">
+          <input type="hidden" name="latRumah" id="hiddenLat"/>
+          <input type="hidden" name="lngRumah" id="hiddenLng"/>
+          <input type="hidden" name="jarakRumah" id="hiddenJarak"/>
+          <input type="hidden" name="jarakNum" id="hiddenJarakNum"/>
         </div>
 
-        <div class="md:col-span-2 mt-4"><h3 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm md:text-base"><i class="fas fa-users mr-2"></i>Data Orang Tua &amp; Wali</h3></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Ayah *</label><input name="namaAyah" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Pekerjaan Ayah *</label><input name="kerjaAyah" required="" class="input-field"></div>
+        <div class="md:col-span-2 mt-4"><h3 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm md:text-base"><i class="fas fa-users mr-2"></i>Data Orang Tua & Wali</h3></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Ayah *</label><input name="namaAyah" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Pekerjaan Ayah *</label><input name="kerjaAyah" required class="input-field"/></div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1"><i class="fas fa-money-bill-wave text-green-500 mr-1"></i>Gaji Ayah *</label>
-          <select name="gajiAyah" id="gajiAyah" required="" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select>
+          <select name="gajiAyah" id="gajiAyah" required class="input-field"><option value="">-- Pilih --</option></select>
         </div>
         <div></div>
 
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Ibu *</label><input name="namaIbu" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Pekerjaan Ibu *</label><input name="kerjaIbu" required="" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Nama Ibu *</label><input name="namaIbu" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Pekerjaan Ibu *</label><input name="kerjaIbu" required class="input-field"/></div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1"><i class="fas fa-money-bill-wave text-green-500 mr-1"></i>Gaji Ibu *</label>
-          <select name="gajiIbu" id="gajiIbu" required="" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select>
+          <select name="gajiIbu" id="gajiIbu" required class="input-field"><option value="">-- Pilih --</option></select>
         </div>
         <div></div>
 
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1"><i class="fas fa-user-shield text-purple-500 mr-1"></i>Nama Wali</label>
-          <input name="waliSiswa" placeholder="Opsional" class="input-field">
+          <input name="waliSiswa" placeholder="Opsional" class="input-field"/>
         </div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Pekerjaan Wali</label>
-          <input name="kerjaWali" placeholder="Opsional" class="input-field">
+          <input name="kerjaWali" placeholder="Opsional" class="input-field"/>
         </div>
         <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1"><i class="fas fa-money-bill-wave text-purple-500 mr-1"></i>Gaji Wali</label>
-          <select name="gajiWali" id="gajiWali" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select>
+          <select name="gajiWali" id="gajiWali" class="input-field"><option value="">-- Pilih --</option></select>
         </div>
         <div></div>
 
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">No. HP Orang Tua / Wali *</label><input name="hpOrtu" required="" class="input-field"></div>
-        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Email</label><input name="email" type="email" placeholder="Opsional" class="input-field"></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">No. HP Orang Tua / Wali *</label><input name="hpOrtu" required class="input-field"/></div>
+        <div><label class="block text-xs md:text-sm font-medium text-slate-600 mb-1">Email</label><input name="email" type="email" placeholder="Opsional" class="input-field"/></div>
 
         <div class="md:col-span-2 mt-4"><h3 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm md:text-base"><i class="fas fa-file-pdf mr-2"></i>Unggah Berkas (max 2MB)</h3></div>
         <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           <div>
             <label class="upload-label w-full text-xs md:text-sm"><i class="fas fa-id-card text-orange-500"></i> KK <span class="text-red-500">*</span>
               <span class="text-xs text-slate-400 ml-auto">PDF</span>
-              <input type="file" accept="application/pdf" required="" onchange="validasiFile(this,'fileKK','pdf')">
+              <input type="file" accept="application/pdf" required onchange="validasiFile(this,'fileKK','pdf')"/>
             </label>
             <div id="preview-fileKK" class="preview-box mt-2 hidden"></div>
           </div>
           <div>
             <label class="upload-label w-full text-xs md:text-sm"><i class="fas fa-id-card-alt text-blue-500"></i> KTP Orang Tua <span class="text-red-500">*</span>
               <span class="text-xs text-slate-400 ml-auto">PDF</span>
-              <input type="file" accept="application/pdf" required="" onchange="validasiFile(this,'fileKTP','pdf')">
+              <input type="file" accept="application/pdf" required onchange="validasiFile(this,'fileKTP','pdf')"/>
             </label>
             <div id="preview-fileKTP" class="preview-box mt-2 hidden"></div>
           </div>
           <div>
             <label class="upload-label w-full text-xs md:text-sm"><i class="fas fa-baby text-green-500"></i> Akta Kelahiran <span class="text-red-500">*</span>
               <span class="text-xs text-slate-400 ml-auto">PDF</span>
-              <input type="file" accept="application/pdf" required="" onchange="validasiFile(this,'fileAkta','pdf')">
+              <input type="file" accept="application/pdf" required onchange="validasiFile(this,'fileAkta','pdf')"/>
             </label>
             <div id="preview-fileAkta" class="preview-box mt-2 hidden"></div>
           </div>
           <div>
             <label class="upload-label w-full text-xs md:text-sm"><i class="fas fa-camera text-pink-500"></i> Foto 3×4 <span class="text-red-500">*</span>
               <span class="text-xs text-slate-400 ml-auto">JPEG</span>
-              <input type="file" accept="image/jpeg,image/jpg" required="" onchange="validasiFile(this,'fileFoto','jpeg')">
+              <input type="file" accept="image/jpeg,image/jpg" required onchange="validasiFile(this,'fileFoto','jpeg')"/>
             </label>
             <div id="preview-fileFoto" class="preview-box mt-2 hidden"></div>
           </div>
@@ -392,20 +393,20 @@
     </section>
 
     <!-- ============ DATABASE ============ -->
-    <section id="page-daftar" class="page hidden fade-in">
+    <section id="page-daftar" class="page hidden fade-in" style="display:none;">
       <div class="flex flex-wrap items-center justify-between mb-4 md:mb-6 gap-3 md:gap-4">
         <h2 class="text-xl md:text-2xl font-bold text-slate-800"><i class="fas fa-database text-orange-500 mr-2"></i>Database Keseluruhan</h2>
         <div class="flex items-center gap-3 flex-wrap">
           <button onclick="refreshData()" class="btn-biru px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow hover:shadow-lg transition text-sm">
             <i class="fas fa-sync-alt"></i> Refresh
           </button>
-          <button id="btnDownloadPDF" onclick="downloadDatabasePDF()" class="btn-biru px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow hover:shadow-lg transition text-sm">
+          <button id="btnDownloadPDF" onclick="downloadDatabasePDF()" class="btn-biru px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow hover:shadow-lg transition hidden text-sm">
             <i class="fas fa-file-pdf pulse-icon"></i> PDF
           </button>
-          <button id="btnDownloadExcel" onclick="downloadDatabaseExcel()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow hover:shadow-lg transition text-sm">
+          <button id="btnDownloadExcel" onclick="downloadDatabaseExcel()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow hover:shadow-lg transition hidden text-sm">
             <i class="fas fa-file-excel pulse-icon"></i> Excel
           </button>
-          <span id="infoDownloadDaftar" class="text-xs text-slate-400 italic flex items-center gap-2 hidden">
+          <span id="infoDownloadDaftar" class="text-xs text-slate-400 italic flex items-center gap-2">
             <i class="fas fa-lock"></i> Login admin untuk mengunduh
           </span>
         </div>
@@ -415,7 +416,7 @@
         <p class="text-xs md:text-sm text-slate-700">
           <i class="fas fa-info-circle text-blue-600 mr-2"></i>
           Data diurutkan berdasarkan <b>jarak rumah ke sekolah</b> (terdekat ke terjauh).
-          <span id="adminActionInfo" class="">Admin dapat <b>mengedit</b>, <b>menghapus</b>, <b>melihat detail</b>, dan <b>mengunduh PDF per siswa</b>.</span>
+          <span id="adminActionInfo" class="hidden">Admin dapat <b>mengedit</b>, <b>menghapus</b>, <b>melihat detail</b>, dan <b>mengunduh PDF per siswa</b>.</span>
         </p>
       </div>
 
@@ -441,7 +442,7 @@
     </section>
 
     <!-- ============ PENGATURAN (ADMIN ONLY) ============ -->
-    <section id="page-pengaturan" class="page fade-in">
+    <section id="page-pengaturan" class="page hidden fade-in" style="display:none;">
       <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 md:mb-6">
         <i class="fas fa-cog text-orange-500 mr-2"></i>Pengaturan
         <span class="badge-admin text-xs align-middle ml-2">ADMIN</span>
@@ -452,7 +453,7 @@
           <h3 class="font-bold text-blue-900 text-base md:text-lg">
             <i class="fas fa-table text-green-600 mr-2"></i>Koneksi Google Spreadsheet
           </h3>
-          <span id="badgeLocked" class="bg-green-600 text-white text-xs px-3 py-1 rounded-full flex items-center gap-1">
+          <span id="badgeLocked" class="hidden bg-green-600 text-white text-xs px-3 py-1 rounded-full flex items-center gap-1">
             <i class="fas fa-lock"></i> URL Terkunci
           </span>
         </div>
@@ -464,28 +465,28 @@
         <label class="block text-xs md:text-sm font-medium text-slate-700 mb-2">
           <i class="fas fa-link text-orange-500 mr-1"></i>URL Apps Script Web App
         </label>
-        <input id="inputApiUrl" type="text" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="input-field font-mono text-xs md:text-sm mb-3 bg-slate-100 cursor-not-allowed" disabled="">
+        <input id="inputApiUrl" type="text" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="input-field font-mono text-xs md:text-sm mb-3"/>
 
         <div class="flex flex-wrap gap-2">
           <button onclick="testKoneksi()" class="btn-biru px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm">
             <i class="fas fa-plug"></i> Test Koneksi
           </button>
-          <button id="btnSimpan" onclick="simpanPengaturan()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm hidden">
-            <i class="fas fa-lock"></i> Simpan &amp; Kunci
+          <button id="btnSimpan" onclick="simpanPengaturan()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm">
+            <i class="fas fa-lock"></i> Simpan & Kunci
           </button>
-          <button id="btnUnlock" onclick="unlockApiUrl()" class="btn-oranye px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm">
+          <button id="btnUnlock" onclick="unlockApiUrl()" class="btn-oranye px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm hidden">
             <i class="fas fa-lock-open"></i> Unlock
           </button>
-          <button id="btnReset" onclick="resetPengaturan()" class="btn-merah px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm hidden">
+          <button id="btnReset" onclick="resetPengaturan()" class="btn-merah px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm">
             <i class="fas fa-trash"></i> Reset
           </button>
         </div>
 
-        <div id="statusKoneksi" class="connection-status connected">
-          <i class="fas fa-check-circle text-2xl text-green-600"></i>
+        <div id="statusKoneksi" class="connection-status unknown">
+          <i class="fas fa-question-circle text-2xl text-amber-600"></i>
           <div>
-            <p class="font-bold text-slate-800 text-sm">Status: <span id="statusKoneksiText">Koneksi Berhasil!</span></p>
-            <p class="text-xs text-slate-600" id="statusKoneksiDetail">Total data di Sheets: 0</p>
+            <p class="font-bold text-slate-800 text-sm">Status: <span id="statusKoneksiText">Belum Diuji</span></p>
+            <p class="text-xs text-slate-600" id="statusKoneksiDetail">Masukkan URL lalu klik "Test Koneksi"</p>
           </div>
         </div>
       </div>
@@ -527,11 +528,11 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="card p-4 bg-slate-50">
             <p class="text-xs text-slate-500 mb-1">URL Tersimpan</p>
-            <p class="font-bold text-slate-700 text-xs break-all" id="infoUrl">https://script.google.com/macros/s/AKfycbxBTZlCd4mQeyXSm_fthPCjALC0giT2VvbosKnCcw4iOPGTBNboVkX6PgFAynvSxxpm/exec</p>
+            <p class="font-bold text-slate-700 text-xs break-all" id="infoUrl">-</p>
           </div>
           <div class="card p-4 bg-slate-50">
             <p class="text-xs text-slate-500 mb-1">Total Data dari Cloud</p>
-            <p class="font-bold text-blue-900 text-lg" id="infoTotalCloud">0</p>
+            <p class="font-bold text-blue-900 text-lg" id="infoTotalCloud">-</p>
           </div>
           <div class="card p-4 bg-slate-50">
             <p class="text-xs text-slate-500 mb-1">Data Lokal (Cache)</p>
@@ -577,11 +578,11 @@
         </div>
 
         <div class="setup-step">
-          <h4><i class="fas fa-lock mr-2"></i>Langkah 4: Simpan &amp; Kunci URL</h4>
+          <h4><i class="fas fa-lock mr-2"></i>Langkah 4: Simpan & Kunci URL</h4>
           <ol>
             <li>Paste URL di kolom atas</li>
             <li>Klik <b>Test Koneksi</b> untuk memastikan</li>
-            <li>Klik <b>"Simpan &amp; Kunci"</b> — URL akan terkunci otomatis</li>
+            <li>Klik <b>"Simpan & Kunci"</b> — URL akan terkunci otomatis</li>
             <li>Download file HTML terkonfigurasi untuk distribusi</li>
           </ol>
         </div>
@@ -591,7 +592,7 @@
         </button>
 
         <div id="kodeAppsScript" class="hidden mt-3">
-          <textarea readonly="" class="w-full h-96 p-3 bg-slate-900 text-green-400 font-mono text-xs rounded-lg" id="textareaKode"></textarea>
+          <textarea readonly class="w-full h-96 p-3 bg-slate-900 text-green-400 font-mono text-xs rounded-lg" id="textareaKode"></textarea>
           <button onclick="copyKodeAppsScript()" class="btn-hijau px-4 py-2 rounded-lg font-semibold flex items-center gap-2 text-sm mt-2">
             <i class="fas fa-copy"></i> Copy Kode
           </button>
@@ -603,11 +604,11 @@
 </div>
 
 <!-- MODAL LOGIN -->
-<div id="modalLogin" class="fixed inset-0 bg-black/50 items-center justify-center z-50 p-4 hidden">
+<div id="modalLogin" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4">
   <div class="card p-6 md:p-8 w-80 fade-in">
     <h3 class="text-xl font-bold text-blue-900 mb-4"><i class="fas fa-lock mr-2"></i>Login Admin</h3>
-    <input id="inUser" placeholder="Username" class="input-field mb-3">
-    <input id="inPass" type="password" placeholder="Password" class="input-field mb-4">
+    <input id="inUser" placeholder="Username" class="input-field mb-3"/>
+    <input id="inPass" type="password" placeholder="Password" class="input-field mb-4"/>
     <div class="flex gap-3">
       <button onclick="doLogin()" class="btn-biru flex-1 py-2 rounded-lg font-semibold">Masuk</button>
       <button onclick="closeLogin()" class="flex-1 py-2 rounded-lg border font-semibold text-slate-600">Batal</button>
@@ -620,44 +621,44 @@
   <div class="card p-4 md:p-6 w-full max-w-3xl max-h-[90vh] overflow-auto fade-in">
     <div class="flex items-center justify-between mb-4 border-b pb-3">
       <h3 class="text-lg md:text-xl font-bold text-blue-900"><i class="fas fa-edit text-purple-600 mr-2"></i>Edit Data</h3>
-      <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">×</button>
+      <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">&times;</button>
     </div>
     <form id="formEdit" onsubmit="saveEdit(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="hidden" id="editId">
+      <input type="hidden" id="editId"/>
       <div class="md:col-span-2"><h4 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm"><i class="fas fa-child mr-2"></i>Data Siswa</h4></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Lengkap *</label><input id="editNama" required="" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">NISN</label><input id="editNisn" class="input-field"></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Lengkap *</label><input id="editNama" required class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">NISN</label><input id="editNisn" class="input-field"/></div>
       <div><label class="block text-xs font-medium text-slate-600 mb-1">Jenis Kelamin</label>
         <select id="editJk" class="input-field"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
       </div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Tempat Lahir</label><input id="editTempatLahir" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Tanggal Lahir</label><input id="editTglLahir" type="date" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">NIK Siswa</label><input id="editNik" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">No. Kartu Keluarga</label><input id="editNoKK" class="input-field"></div>
-      <div class="md:col-span-2"><label class="block text-xs font-medium text-slate-600 mb-1">Asal Sekolah</label><input id="editAsalSekolah" class="input-field"></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Tempat Lahir</label><input id="editTempatLahir" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Tanggal Lahir</label><input id="editTglLahir" type="date" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">NIK Siswa</label><input id="editNik" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">No. Kartu Keluarga</label><input id="editNoKK" class="input-field"/></div>
+      <div class="md:col-span-2"><label class="block text-xs font-medium text-slate-600 mb-1">Asal Sekolah</label><input id="editAsalSekolah" class="input-field"/></div>
       <div><label class="block text-xs font-medium text-slate-600 mb-1">Agama</label>
         <select id="editAgama" class="input-field"><option>Islam</option><option>Kristen</option><option>Katolik</option><option>Hindu</option><option>Buddha</option><option>Konghucu</option></select>
       </div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kode Pos</label><input id="editKodepos" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Alamat</label><input id="editAlamat" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">RT/RW</label><input id="editRtrw" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Desa</label><input id="editDesa" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kecamatan</label><input id="editKecamatan" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kabupaten</label><input id="editKabupaten" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Provinsi</label><input id="editProvinsi" class="input-field"></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kode Pos</label><input id="editKodepos" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Alamat</label><input id="editAlamat" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">RT/RW</label><input id="editRtrw" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Desa</label><input id="editDesa" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kecamatan</label><input id="editKecamatan" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Kabupaten</label><input id="editKabupaten" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Provinsi</label><input id="editProvinsi" class="input-field"/></div>
 
-      <div class="md:col-span-2 mt-2"><h4 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm"><i class="fas fa-users mr-2"></i>Data Orang Tua &amp; Wali</h4></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Ayah</label><input id="editNamaAyah" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Ayah</label><input id="editKerjaAyah" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Ayah</label><select id="editGajiAyah" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Ibu</label><input id="editNamaIbu" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Ibu</label><input id="editKerjaIbu" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Ibu</label><select id="editGajiIbu" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Wali</label><input id="editWaliSiswa" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Wali</label><input id="editKerjaWali" class="input-field"></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Wali</label><select id="editGajiWali" class="input-field"><option value="">-- Pilih --</option><option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option><option value="1-4 juta">Rp 1 juta - Rp 4 juta</option><option value="4-7 juta">Rp 4 juta - Rp 7 juta</option><option value="7-10 juta">Rp 7 juta - Rp 10 juta</option><option value="10-13 juta">Rp 10 juta - Rp 13 juta</option><option value="13-16 juta">Rp 13 juta - Rp 16 juta</option><option value="16-19 juta">Rp 16 juta - Rp 19 juta</option><option value="19-22 juta">Rp 19 juta - Rp 22 juta</option><option value="22-25 juta">Rp 22 juta - Rp 25 juta</option><option value="25-28 juta">Rp 25 juta - Rp 28 juta</option><option value="28-31 juta">Rp 28 juta - Rp 31 juta</option><option value="31-34 juta">Rp 31 juta - Rp 34 juta</option><option value="34-37 juta">Rp 34 juta - Rp 37 juta</option><option value="37-40 juta">Rp 37 juta - Rp 40 juta</option><option value="40-43 juta">Rp 40 juta - Rp 43 juta</option><option value="43-46 juta">Rp 43 juta - Rp 46 juta</option><option value="46-49 juta">Rp 46 juta - Rp 49 juta</option><option value="49-50 juta">Rp 49 juta - Rp 50 juta</option></select></div>
-      <div><label class="block text-xs font-medium text-slate-600 mb-1">No. HP</label><input id="editHpOrtu" class="input-field"></div>
-      <div class="md:col-span-2"><label class="block text-xs font-medium text-slate-600 mb-1">Email</label><input id="editEmail" type="email" class="input-field"></div>
+      <div class="md:col-span-2 mt-2"><h4 class="font-semibold text-blue-900 border-b pb-2 mb-2 text-sm"><i class="fas fa-users mr-2"></i>Data Orang Tua & Wali</h4></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Ayah</label><input id="editNamaAyah" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Ayah</label><input id="editKerjaAyah" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Ayah</label><select id="editGajiAyah" class="input-field"><option value="">-- Pilih --</option></select></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Ibu</label><input id="editNamaIbu" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Ibu</label><input id="editKerjaIbu" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Ibu</label><select id="editGajiIbu" class="input-field"><option value="">-- Pilih --</option></select></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Nama Wali</label><input id="editWaliSiswa" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Pekerjaan Wali</label><input id="editKerjaWali" class="input-field"/></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">Gaji Wali</label><select id="editGajiWali" class="input-field"><option value="">-- Pilih --</option></select></div>
+      <div><label class="block text-xs font-medium text-slate-600 mb-1">No. HP</label><input id="editHpOrtu" class="input-field"/></div>
+      <div class="md:col-span-2"><label class="block text-xs font-medium text-slate-600 mb-1">Email</label><input id="editEmail" type="email" class="input-field"/></div>
 
       <div class="md:col-span-2 flex justify-end gap-3 mt-4 border-t pt-4">
         <button type="button" onclick="closeEditModal()" class="px-4 md:px-6 py-2 rounded-lg border font-semibold text-slate-600 hover:bg-slate-50 text-sm">Batal</button>
@@ -672,7 +673,7 @@
   <div class="card p-4 md:p-6 w-full max-w-3xl max-h-[90vh] overflow-auto fade-in">
     <div class="flex items-center justify-between mb-4 border-b pb-3">
       <h3 class="text-lg md:text-xl font-bold text-blue-900"><i class="fas fa-user-graduate text-orange-500 mr-2"></i>Detail Data Siswa</h3>
-      <button onclick="closeDetailModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">×</button>
+      <button onclick="closeDetailModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">&times;</button>
     </div>
     <div id="detailContent"></div>
   </div>
@@ -683,7 +684,7 @@
   <div class="card p-4 md:p-6 w-full max-w-4xl max-h-[90vh] overflow-auto fade-in">
     <div class="flex items-center justify-between mb-4 border-b pb-3">
       <h3 class="text-lg md:text-xl font-bold text-blue-900"><i class="fas fa-folder-open text-orange-500 mr-2"></i>Berkas: <span id="filesStudentName" class="text-orange-500"></span></h3>
-      <button onclick="closeFilesModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">×</button>
+      <button onclick="closeFilesModal()" class="text-slate-400 hover:text-slate-700 text-3xl leading-none">&times;</button>
     </div>
     <div id="filesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
   </div>
@@ -705,13 +706,9 @@
 
 <script>
 /* ============================================================
-   ⚙️ KONFIGURASI URL — di-hardcode agar otomatis tersambung
-   Saat admin klik "Download File HTML Terkonfigurasi",
-   baris di bawah akan terisi otomatis dengan URL.
+   ⚙️ KONFIGURASI URL — akan diisi otomatis saat download terkonfigurasi
    ============================================================ */
-var DEFAULT_API_URL = 'https://script.google.com/macros/s/AKfycbxBTZlCd4mQeyXSm_fthPCjALC0giT2VvbosKnCcw4iOPGTBNboVkX6PgFAynvSxxpm/exec'; /* <- Akan diisi otomatis saat admin download file terkonfigurasi */
-
-/* Priority: DEFAULT_API_URL (hardcoded) > localStorage */
+var DEFAULT_API_URL = '';
 var API_URL = DEFAULT_API_URL || localStorage.getItem('databaseSDNMT2027_apiUrl') || '';
 var apiUrlLocked = localStorage.getItem('databaseSDNMT2027_apiUrlLocked') === 'true' || (DEFAULT_API_URL !== '');
 var lastConnectionTest = null;
@@ -768,10 +765,30 @@ var chartInden = null, chartGender = null;
    ============================================================ */
 document.addEventListener('DOMContentLoaded', function(){
   try {
+    /* 🎯 Paksa tampilan awal = Dashboard */
+    document.querySelectorAll('.page').forEach(function(p){
+      p.classList.add('hidden');
+      p.style.display = 'none';
+    });
+    var dashEl = document.getElementById('page-dashboard');
+    if(dashEl){
+      dashEl.classList.remove('hidden');
+      dashEl.style.display = 'block';
+    }
+
+    /* 🎯 Pastikan menu Pengaturan tersembunyi */
+    var mp = document.getElementById('menuPengaturan');
+    if(mp){
+      mp.classList.add('hidden');
+      mp.style.display = 'none';
+    }
+
+    /* Isi dropdown kecamatan */
     var selKec = document.getElementById('selKec');
     Object.keys(WILAYAH).sort().forEach(function(k){
       selKec.innerHTML += '<option value="' + k + '">' + k + '</option>';
     });
+
     isiDropdownGaji();
     initMap();
     renderChart();
@@ -798,7 +815,8 @@ function loadDataLokal(){
     dataInden = JSON.parse(localStorage.getItem('databaseSDNMT2027') || '[]');
     renderTabel();
     renderChart();
-    document.getElementById('infoTotalLocal').textContent = dataInden.length;
+    var el = document.getElementById('infoTotalLocal');
+    if(el) el.textContent = dataInden.length;
   } catch(e){ dataInden = []; }
 }
 
@@ -954,8 +972,10 @@ function deleteFromSheets(id, callback){
    PENGATURAN
    ============================================================ */
 function updatePengaturanUI(){
-  document.getElementById('infoUrl').textContent = API_URL || 'Belum diatur';
-  document.getElementById('infoTotalLocal').textContent = dataInden.length;
+  var infoUrl = document.getElementById('infoUrl');
+  var infoLocal = document.getElementById('infoTotalLocal');
+  if(infoUrl) infoUrl.textContent = API_URL || 'Belum diatur';
+  if(infoLocal) infoLocal.textContent = dataInden.length;
 
   var inputUrl = document.getElementById('inputApiUrl');
   var statusEl = document.getElementById('statusKoneksi');
@@ -964,6 +984,7 @@ function updatePengaturanUI(){
   var btnUnlock = document.getElementById('btnUnlock');
   var btnReset = document.getElementById('btnReset');
 
+  if(!inputUrl) return;
   if(API_URL) inputUrl.value = API_URL;
 
   if(apiUrlLocked){
@@ -1137,14 +1158,9 @@ function showUrlForHardcode(){
    APPS SCRIPT CODE
    ============================================================ */
 var KODE_APPS_SCRIPT = [
-"/* ============================================================",
-"   GOOGLE APPS SCRIPT — API Database SDNMT 2027",
-"   Paste kode ini ke Apps Script, lalu Deploy sebagai Web App",
-"   ============================================================ */",
-"",
+"/* GOOGLE APPS SCRIPT — API Database SDNMT 2027 */",
 "const SHEET_NAME = 'Inden';",
 "const FOLDER_NAME = 'SDNMT Files 2027';",
-"",
 "const HEADERS = [",
 "  'id', 'timestamp', 'nama', 'nisn', 'jk', 'tempatLahir', 'tglLahir', 'umur',",
 "  'nik', 'noKK', 'asalSekolah', 'agama', 'alamat', 'rtrw', 'kodepos',",
@@ -1154,7 +1170,6 @@ var KODE_APPS_SCRIPT = [
 "  'lat', 'lng', 'jarak', 'jarakNum',",
 "  'fileKK', 'fileKTP', 'fileAkta', 'fileFoto', 'tglDaftar'",
 "];",
-"",
 "function getSheet() {",
 "  const ss = SpreadsheetApp.getActiveSpreadsheet();",
 "  let sheet = ss.getSheetByName(SHEET_NAME);",
@@ -1166,16 +1181,13 @@ var KODE_APPS_SCRIPT = [
 "  }",
 "  return sheet;",
 "}",
-"",
 "function getFolder() {",
 "  const folders = DriveApp.getFoldersByName(FOLDER_NAME);",
 "  if (folders.hasNext()) return folders.next();",
 "  return DriveApp.createFolder(FOLDER_NAME);",
 "}",
-"",
 "function doGet(e) { return handleRequest(e); }",
 "function doPost(e) { return handleRequest(e); }",
-"",
 "function handleRequest(e) {",
 "  try {",
 "    let params = {};",
@@ -1197,7 +1209,6 @@ var KODE_APPS_SCRIPT = [
 "    return ContentService.createTextOutput(JSON.stringify({ success: false, error: err.toString() })).setMimeType(ContentService.MimeType.JSON);",
 "  }",
 "}",
-"",
 "function getAllData() {",
 "  const sheet = getSheet();",
 "  const lastRow = sheet.getLastRow();",
@@ -1219,7 +1230,6 @@ var KODE_APPS_SCRIPT = [
 "    return obj;",
 "  }).filter(function (d) { return d.id; });",
 "}",
-"",
 "function addData(data) {",
 "  if (!data) throw new Error('Data kosong');",
 "  const sheet = getSheet();",
@@ -1238,7 +1248,6 @@ var KODE_APPS_SCRIPT = [
 "  sheet.appendRow(row);",
 "  return { id: data.id };",
 "}",
-"",
 "function updateData(data) {",
 "  if (!data || !data.id) throw new Error('Data tidak lengkap');",
 "  const sheet = getSheet();",
@@ -1261,7 +1270,6 @@ var KODE_APPS_SCRIPT = [
 "  sheet.getRange(rowIndex + 2, 1, 1, row.length).setValues([row]);",
 "  return { id: data.id };",
 "}",
-"",
 "function deleteData(id) {",
 "  if (!id) throw new Error('ID kosong');",
 "  const sheet = getSheet();",
@@ -1273,7 +1281,6 @@ var KODE_APPS_SCRIPT = [
 "  sheet.deleteRow(rowIndex + 2);",
 "  return { id: id };",
 "}",
-"",
 "function saveFileToDrive(fileData) {",
 "  const folder = getFolder();",
 "  const base64 = fileData.base64.indexOf(',') > -1 ? fileData.base64.split(',')[1] : fileData.base64;",
@@ -1301,7 +1308,7 @@ function toggleKodeAppsScript(){
 function copyKodeAppsScript(){
   var ta = document.getElementById('textareaKode');
   ta.select();
-  try { document.execCommand('copy'); alert('Kode berhasil di-copy!'); } catch(e){ alert('Gagal copy. Copy manual dari textarea.'); }
+  try { document.execCommand('copy'); alert('Kode berhasil di-copy!'); } catch(e){ alert('Gagal copy.'); }
 }
 
 /* ============================================================
@@ -1483,8 +1490,20 @@ function showPage(name){
     alert('Halaman Pengaturan hanya bisa diakses oleh Admin.\nSilakan login terlebih dahulu.');
     return;
   }
-  document.querySelectorAll('.page').forEach(function(p){ p.classList.add('hidden'); });
-  document.getElementById('page-' + name).classList.remove('hidden');
+
+  /* Sembunyikan semua halaman */
+  document.querySelectorAll('.page').forEach(function(p){
+    p.classList.add('hidden');
+    p.style.display = 'none';
+  });
+
+  /* Tampilkan halaman yang dipilih */
+  var target = document.getElementById('page-' + name);
+  if(target){
+    target.classList.remove('hidden');
+    target.style.display = 'block';
+  }
+
   if(name === 'dashboard') renderChart();
   if(name === 'daftar') renderTabel();
   if(name === 'inden' && mapPicker) setTimeout(function(){ mapPicker.invalidateSize(); }, 200);
@@ -1971,11 +1990,22 @@ function toggleLogin(){
   if(isAdmin){
     if(!confirm('Logout dari mode admin?')) return;
     isAdmin = false;
-    updateAdminControls();
-    renderTabel();
+
+    /* Paksa kembali ke Dashboard jika sedang di Pengaturan */
     if(!document.getElementById('page-pengaturan').classList.contains('hidden')){
       showPage('dashboard');
     }
+
+    /* Sembunyikan menu Pengaturan */
+    var mp = document.getElementById('menuPengaturan');
+    if(mp){
+      mp.classList.add('hidden');
+      mp.style.display = 'none';
+    }
+
+    updateAdminControls();
+    renderTabel();
+    alert('Anda telah logout. Menu Pengaturan disembunyikan.');
     return;
   }
   var m = document.getElementById('modalLogin');
@@ -2014,6 +2044,7 @@ function updateAdminControls(){
   var infoDownloadDaftar = document.getElementById('infoDownloadDaftar');
   var adminActionInfo = document.getElementById('adminActionInfo');
   var menuPengaturan = document.getElementById('menuPengaturan');
+
   if(isAdmin){
     badge.classList.remove('hidden');
     btnText.textContent = 'Logout';
@@ -2021,7 +2052,12 @@ function updateAdminControls(){
     btnDownloadExcel.classList.remove('hidden');
     infoDownloadDaftar.classList.add('hidden');
     if(adminActionInfo) adminActionInfo.classList.remove('hidden');
-    if(menuPengaturan) menuPengaturan.classList.remove('hidden');
+
+    /* Tampilkan menu Pengaturan */
+    if(menuPengaturan){
+      menuPengaturan.classList.remove('hidden');
+      menuPengaturan.style.display = 'flex';
+    }
   } else {
     badge.classList.add('hidden');
     btnText.textContent = 'Login Admin';
@@ -2029,7 +2065,12 @@ function updateAdminControls(){
     btnDownloadExcel.classList.add('hidden');
     infoDownloadDaftar.classList.remove('hidden');
     if(adminActionInfo) adminActionInfo.classList.add('hidden');
-    if(menuPengaturan) menuPengaturan.classList.add('hidden');
+
+    /* Sembunyikan menu Pengaturan */
+    if(menuPengaturan){
+      menuPengaturan.classList.add('hidden');
+      menuPengaturan.style.display = 'none';
+    }
   }
 }
 
@@ -2069,5 +2110,5 @@ function renderChart(){
   });
 }
 </script>
-
-</body></html>
+</body>
+</html>
